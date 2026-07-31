@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.novacredit.com/
+description: >-
+  Nova Credit ships hosted, embeddable consumer-facing flows (the NovaConnect
+  "webview" surfaces) that customers embed to collect applicant consent and
+  connect data sources without handling raw credentials themselves.
+families:
+  - name: NovaConnect Webview
+    kind: hosted-embedded-flow
+    components:
+      - name: Credit Passport Webview
+        docs: https://docs.novacredit.com/credit-passport-webview
+      - name: Cash Atlas Webview
+        docs: https://docs.novacredit.com/cash-atlas-webview
+      - name: Income Navigator Webview
+        docs: https://docs.novacredit.com/income-navigator-webview
+    init:
+      description: >-
+        A prefilled NovaConnect token / link is generated server-side
+        (POST /connect/initialization, /connect/invite-link) and rendered to the
+        applicant as a hosted webview or shareable link.
+      operations:
+        - POST /connect/initialization
+        - POST /connect/invite
+        - POST /connect/invite-link
+    identified_by: publicId
+notes: >-
+  These are hosted UI surfaces distinct from server-side SDKs (Nova Credit
+  publishes no first-party client SDK library).

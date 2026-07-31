@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.novacredit.com/credit-passport/v4
+environments:
+  - mode: sandbox
+    base_url: https://api.sandbox.novacredit.com
+    description: Dedicated sandbox host for integration testing.
+  - mode: production
+    base_url: https://api.novacredit.com
+    description: Production host.
+credential_separation:
+  notes: >-
+    Sandbox and production are separated by host. Server-side calls use
+    clientId/secretKey (HTTP Basic) to obtain a short-lived accessToken;
+    client-side NovaConnect flows use a publicId.
+test_values:
+  notes: >-
+    Nova Credit does not publish static magic test card numbers or fixed test
+    identifiers on its public developer docs; sandbox reports are generated
+    through the NovaConnect test flow. No verbatim test values were captured
+    (none fabricated).

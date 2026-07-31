@@ -1,0 +1,42 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.novacredit.com/credit-passport/v4
+authentication:
+  style: two-step (HTTP Basic -> short-lived Bearer)
+  detail: authentication/nova-credit-authentication.yml
+versioning:
+  style: uri-path per product
+  detail: lifecycle/nova-credit-lifecycle.yml
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key header or idempotency contract is documented. A
+    caller-supplied X-EXTERNAL-ID is required to be unique per applicant
+    (a DUPLICATE_EXTERNAL_ID error is returned on reuse), which provides
+    de-duplication of report creation but is not a general idempotency-key
+    mechanism.
+pagination:
+  supported: unknown
+  notes: No pagination parameters are documented for the report endpoints.
+rate_limiting:
+  documented: false
+request_identifiers:
+  - name: X-EXTERNAL-ID
+    role: caller-supplied applicant identifier (unique per applicant)
+  - name: X-PUBLIC-TOKEN
+    role: report identifier
+  - name: X-PUBLIC-ID
+    role: account identifier when using X-EXTERNAL-ID with Parent accounts
+error_envelope:
+  style: custom error-code string + HTTP status
+  detail: errors/nova-credit-error-codes.yml
+payload_encryption:
+  scheme: JWE (RSA-OAEP-256)
+  jwks_endpoint: https://api.novacredit.com/connect/jwkset
+  notes: Report payloads are JWE-encrypted; fetch RSA public keys from the JWKS endpoint.
+webhooks:
+  supported: true
+  detail: asyncapi/nova-credit-webhooks.yml
+enterprise_identity:
+  scim: https://docs.novacredit.com/scim
+  sso: https://docs.novacredit.com/sso

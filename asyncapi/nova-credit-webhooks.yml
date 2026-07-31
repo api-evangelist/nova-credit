@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.novacredit.com/credit-passport/v4
+spec_type: Webhooks
+description: >-
+  Nova Credit delivers asynchronous status updates via HTTP webhooks. When a
+  Credit Passport (and other product) report changes state, Nova Credit POSTs a
+  callback to the customer's configured endpoint. The callback carries the
+  report's publicToken (not the full report body); the consumer then retrieves
+  the report server-side using the publicToken and a Bearer accessToken.
+transport: https-post
+delivery:
+  method: POST
+  target: customer-configured callback URL
+  payload_contains:
+    - publicToken
+  payload_excludes:
+    - full report body (fetched separately, JWE-encrypted)
+events:
+  - name: report.status_update
+    description: >-
+      Report compilation status changed. Consumers poll GET /connect/status or
+      react to this callback, then fetch the report via
+      GET /connect/passport/v4/json or /pdf.
+    carries: [publicToken]
+related_endpoints:
+  - GET /connect/status
+  - GET /connect/passport/v4/json
+  - GET /connect/passport/v4/pdf
+notes: >-
+  Nova Credit does not publish a machine-readable AsyncAPI document; this is a
+  captured webhook catalog derived from the developer documentation.

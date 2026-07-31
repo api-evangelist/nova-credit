@@ -1,0 +1,68 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.novacredit.com/credit-passport/v4
+docs: https://docs.novacredit.com/credit-passport-quickstart
+summary:
+  types: [http-basic, http-bearer]
+  api_key_in: [header]
+  oauth2_flows: []
+  notes: >-
+    Two-step credential model. Server-side clients authenticate to the token
+    endpoint with HTTP Basic using base64(clientId:secretKey), receive a
+    short-lived (5 minute) accessToken, then call report/data endpoints with an
+    HTTP Bearer accessToken. Report payloads are additionally JWE-encrypted using
+    RSA-OAEP-256; consumers fetch Nova Credit's RSA public keys from a JWKS
+    endpoint. Client-side (NovaConnect / webview) integrations are identified by a
+    publicId rather than the secret key.
+schemes:
+  - name: BasicAuth
+    type: http
+    scheme: basic
+    description: >-
+      Base64-encoded clientId:secretKey passed as `Authorization: Basic <creds>`
+      to obtain an access token from GET /connect/accesstoken.
+    applies_to: [GET /connect/accesstoken]
+    sources: [https://docs.novacredit.com/credit-passport/v4]
+  - name: BearerAuth
+    type: http
+    scheme: bearer
+    bearer_format: opaque
+    description: >-
+      Short-lived accessToken (5 minute lifetime) passed as
+      `Authorization: Bearer <accessToken>` to retrieve reports and call
+      server-side endpoints.
+    applies_to:
+      - GET /connect/passport/v4/json
+      - GET /connect/passport/v4/pdf
+      - GET /connect/status
+    sources: [https://docs.novacredit.com/credit-passport/v4]
+credentials:
+  - name: publicId
+    role: client-side account identifier (NovaConnect / webview)
+  - name: clientId
+    role: server-side API identifier (Basic Auth username)
+  - name: secretKey
+    role: server-side API secret (Basic Auth password) — confidential
+  - name: publicToken
+    role: identifies a specific Credit Passport report
+  - name: accessToken
+    role: short-lived (5 min) bearer token authorizing server-side requests
+request_headers:
+  - name: X-PUBLIC-TOKEN
+    description: Report identifier for report-retrieval requests
+  - name: X-EXTERNAL-ID
+    description: Caller-supplied applicant identifier
+  - name: X-PUBLIC-ID
+    description: Required when using X-EXTERNAL-ID with Parent accounts
+payload_encryption:
+  scheme: JWE
+  algorithm: RSA-OAEP-256
+  key_use: enc
+  jwks_endpoint: https://api.novacredit.com/connect/jwkset
+  verified_status: 200
+enterprise_identity:
+  scim: https://docs.novacredit.com/scim
+  sso: https://docs.novacredit.com/sso
+environments:
+  production: https://api.novacredit.com
+  sandbox: https://api.sandbox.novacredit.com

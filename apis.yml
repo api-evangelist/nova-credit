@@ -1,8 +1,31 @@
 aid: nova-credit
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nova-credit.png
 name: Nova Credit
-description: Nova Credit is a company surfaced as a portfolio company of general-catalyst, index-ventures
-  and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the
-  enrichment pipeline.
+description: >-
+  Nova Credit is a fintech consumer-credit-data platform that gives lenders and
+  financial institutions a single API to access unified consumer credit data
+  from more than 26 sources — international credit bureaus, bank-transaction
+  aggregators, payroll systems, and automated document data. Its products
+  (Credit Passport, Cash Atlas, Income Navigator, and Eligibility Compass) let
+  institutions underwrite qualified newcomers and thin-file applicants with
+  translated international credit history, run cashflow-based underwriting from
+  bank data, automate income verification with fraud detection, and speed
+  income/asset verification for affordable housing. The developer platform
+  exposes REST APIs over api.novacredit.com with a dedicated sandbox host,
+  HTTP Basic to short-lived Bearer authentication, JWE-encrypted report
+  payloads, hosted NovaConnect consent webviews, webhooks, SCIM and SSO.
 url: https://raw.githubusercontent.com/api-evangelist/nova-credit/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -13,15 +36,102 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Credit Data
+- Consumer Credit
+- Credit Bureau
+- Income Verification
+- Underwriting
+- Fintech
+- Financial Services
+- Lending
+- Cash Flow Underwriting
+- Identity
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Nova Credit Platform API
+  description: >-
+    Unified REST API surface across Nova Credit's products (Credit Passport v4,
+    Cash Atlas v2, Income Navigator v2, Eligibility Compass v1). Server-side
+    clients authenticate with HTTP Basic to mint a short-lived Bearer
+    accessToken, then create consumers, initialize NovaConnect sessions, and
+    retrieve JWE-encrypted reports.
+  humanURL: https://docs.novacredit.com
+  baseURL: https://api.novacredit.com
+  tags:
+  - Credit Data
+  - Income Verification
+  - Underwriting
+  properties:
+  - type: Documentation
+    url: https://docs.novacredit.com
+  - type: APIReference
+    url: https://docs.novacredit.com/credit-passport/v4
+  - type: GettingStarted
+    url: https://docs.novacredit.com/credit-passport-quickstart
+  - type: Authentication
+    url: authentication/nova-credit-authentication.yml
+  - type: Sandbox
+    url: https://api.sandbox.novacredit.com
+  - type: Webhooks
+    url: asyncapi/nova-credit-webhooks.yml
 common:
 - type: Website
-  url: http://novacredit.com
+  url: https://www.novacredit.com
+- type: DeveloperPortal
+  url: https://docs.novacredit.com
+- type: Documentation
+  url: https://docs.novacredit.com
+- type: APIReference
+  url: https://docs.novacredit.com/credit-passport/v4
+- type: GettingStarted
+  url: https://docs.novacredit.com/credit-passport-quickstart
+- type: Support
+  url: https://www.novacredit.com/contact
+- type: HelpCenter
+  url: https://novacreditsupport.zendesk.com/hc/en-us
+- type: Blog
+  url: https://www.novacredit.com/corporate-blog
+- type: GitHubOrganization
+  url: https://github.com/novacredit
+- type: TermsOfService
+  url: https://www.novacredit.com/terms
+- type: PrivacyPolicy
+  url: https://www.novacredit.com/privacy
+- type: Authentication
+  url: authentication/nova-credit-authentication.yml
+- type: Conventions
+  url: conventions/nova-credit-conventions.yml
+- type: ErrorCatalog
+  url: errors/nova-credit-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/nova-credit-lifecycle.yml
+- type: Sandbox
+  url: sandbox/nova-credit-sandbox.yml
+- type: Webhooks
+  url: asyncapi/nova-credit-webhooks.yml
+- type: Conformance
+  url: conformance/nova-credit-conformance.yml
+- type: Components
+  url: components/nova-credit-components.yml
+- type: DataModel
+  url: data-model/nova-credit-data-model.yml
+- type: MCPServer
+  url: mcp/nova-credit-mcp.yml
+- type: LLMsTxt
+  url: llms/nova-credit-llms.txt
+- type: DomainSecurity
+  url: security/nova-credit-domain-security.yml
+- type: TrustCenter
+  url: security/nova-credit-trust-center.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v1

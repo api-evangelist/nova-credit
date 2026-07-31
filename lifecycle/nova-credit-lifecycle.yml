@@ -1,0 +1,35 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.novacredit.com/
+versioning:
+  scheme: uri-path
+  notes: >-
+    Each product is independently versioned in the request path. Current
+    versions observed in the developer docs are listed per product below.
+  products:
+    - product: Credit Passport
+      current: v4
+      docs: https://docs.novacredit.com/credit-passport/v4
+    - product: Cash Atlas
+      current: v2
+      docs: https://docs.novacredit.com/cash-atlas/v2
+    - product: Income Navigator
+      current: v2
+      docs: https://docs.novacredit.com/income-navigator/v2
+    - product: Eligibility Compass (Affordable Housing)
+      current: v1
+      docs: https://docs.novacredit.com/affordable-housing/v1
+deprecated_products:
+  - product: Cash Atlas
+    version: v1
+    status: deprecated
+    docs: https://docs.novacredit.com/cash-atlas
+    note: v1 is marked deprecated in the developer docs; v2 is current.
+environments:
+  production: https://api.novacredit.com
+  sandbox: https://api.sandbox.novacredit.com
+support:
+  help_center: https://novacreditsupport.zendesk.com/hc/en-us
+  contact: https://www.novacredit.com/contact
+status_page: null
+sla: null

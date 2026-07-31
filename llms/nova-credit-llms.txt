@@ -1,0 +1,52 @@
+# Nova Credit
+
+> Nova Credit is a fintech consumer-credit-data platform that provides a single
+> API surface to access unified consumer credit data from multiple sources —
+> international credit bureaus, bank-transaction aggregators, payroll systems,
+> and automated document data (26+ data sources). Its products let lenders and
+> financial institutions underwrite newcomers and thin-file applicants, verify
+> income, and assess affordability.
+
+## Products
+- [Credit Passport](https://www.novacredit.com/credit-passport): Approve qualified newcomers using translated international credit data (API v4).
+- [Cash Atlas](https://www.novacredit.com/cash-atlas): Bank-transaction-based cashflow underwriting (API v2).
+- [Income Navigator](https://www.novacredit.com/income-navigator): Automated income verification with fraud detection (API v2).
+- [Eligibility Compass](https://www.novacredit.com/eligibility-compass): Income and asset verification for affordable housing (API v1).
+- [Platform](https://www.novacredit.com/platform): Unified infrastructure across all products.
+
+## APIs
+- Production base URL: https://api.novacredit.com
+- Sandbox base URL: https://api.sandbox.novacredit.com
+- Auth: HTTP Basic (clientId:secretKey) to mint a 5-minute Bearer accessToken; report payloads are JWE (RSA-OAEP-256) encrypted.
+- JWKS: https://api.novacredit.com/connect/jwkset
+- Webhooks: status callbacks POST a report publicToken to your endpoint.
+
+## Docs
+- [Developer Docs](https://docs.novacredit.com)
+- [Credit Passport Quickstart](https://docs.novacredit.com/credit-passport-quickstart)
+- [Credit Passport v4 Reference](https://docs.novacredit.com/credit-passport/v4)
+- [Cash Atlas v2](https://docs.novacredit.com/cash-atlas/v2)
+- [Income Navigator v2](https://docs.novacredit.com/income-navigator/v2)
+- [Eligibility Compass v1](https://docs.novacredit.com/affordable-housing/v1)
+- [Multi-Product Token](https://docs.novacredit.com/multi-product-token)
+- [SCIM](https://docs.novacredit.com/scim)
+- [SSO](https://docs.novacredit.com/sso)
+
+## Repo artifacts (API Evangelist)
+- Authentication: authentication/nova-credit-authentication.yml
+- Conventions: conventions/nova-credit-conventions.yml
+- Error codes: errors/nova-credit-error-codes.yml
+- Lifecycle: lifecycle/nova-credit-lifecycle.yml
+- Sandbox: sandbox/nova-credit-sandbox.yml
+- Webhooks: asyncapi/nova-credit-webhooks.yml
+- Conformance: conformance/nova-credit-conformance.yml
+- Components: components/nova-credit-components.yml
+- Data model: data-model/nova-credit-data-model.yml
+- MCP (candidate): mcp/nova-credit-mcp.yml
+- Domain security: security/nova-credit-domain-security.yml
+- Trust center: security/nova-credit-trust-center.yml
+
+## Support
+- [Help Center](https://novacreditsupport.zendesk.com/hc/en-us)
+- [Contact](https://www.novacredit.com/contact)
+- [Blog](https://www.novacredit.com/corporate-blog)

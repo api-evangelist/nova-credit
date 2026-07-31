@@ -1,0 +1,54 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.novacredit.com/credit-passport/v4
+note: >-
+  Entity graph derived from the documented Credit Passport v4 endpoint surface
+  (no machine-readable OpenAPI is published). Entities and relationships reflect
+  documented objects and id-reference fields; not derived from a $ref graph.
+entities:
+  - name: Consumer
+    description: An applicant record.
+    id_fields: [consumerId, externalId]
+    endpoints:
+      - POST /connect/consumers
+      - GET /connect/consumers/:consumerId
+      - PATCH /connect/consumers/:consumerId
+  - name: Report
+    aliases: [Credit Passport, Passport]
+    description: A compiled credit report for a consumer, identified by a publicToken.
+    id_fields: [publicToken, multiProductToken]
+    endpoints:
+      - GET /connect/passport/v4/json
+      - GET /connect/passport/v4/pdf
+      - GET /connect/status
+  - name: Supplier
+    description: An active data supplier (source bureau / aggregator).
+    endpoints:
+      - GET /connect/suppliers
+  - name: AccessToken
+    description: Short-lived (5 min) server-side authorization token.
+    endpoints:
+      - GET /connect/accesstoken
+  - name: NovaConnectSession
+    description: A hosted applicant consent/collection session.
+    endpoints:
+      - POST /connect/initialization
+      - POST /connect/invite
+      - POST /connect/invite-link
+relationships:
+  - from: Report
+    to: Consumer
+    type: belongs_to
+    via: externalId / consumerId
+  - from: Report
+    to: Supplier
+    type: has_many
+    via: data suppliers contributing to the report
+  - from: NovaConnectSession
+    to: Consumer
+    type: belongs_to
+    via: applicant identity fields
+  - from: Report
+    to: Report
+    type: has_one
+    via: multiProductToken (derived secondary report)

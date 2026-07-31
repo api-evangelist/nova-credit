@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: live probes of apex + API hosts
+hosts:
+  - host: https://novacredit.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+      - path: /.well-known/openid-configuration
+        status: 301
+      - path: /.well-known/oauth-authorization-server
+        status: 301
+      - path: /.well-known/api-catalog
+        status: 301
+      - path: /.well-known/ai-plugin.json
+        status: 301
+    note: apex redirects /.well-known/* to www (which returns 404).
+  - host: https://api.novacredit.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+non_standard_discovery:
+  - path: /connect/jwkset
+    host: https://api.novacredit.com
+    status: 200
+    type: JWKS (RFC 7517)
+    note: >-
+      RSA public key set (RSA-OAEP-256, use=enc) for JWE report-payload
+      encryption. Served outside /.well-known.
+result: No standard /.well-known discovery document was found (security.txt, OIDC, OAuth AS, api-catalog, ai-plugin all absent).

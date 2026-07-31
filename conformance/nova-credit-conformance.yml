@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.novacredit.com/
+standards:
+  - id: http-basic-auth
+    conforms: true
+    evidence: token endpoint authenticates with HTTP Basic (base64 clientId:secretKey)
+  - id: http-bearer-auth
+    conforms: true
+    evidence: report endpoints use Authorization Bearer with a short-lived accessToken
+  - id: jose-jwe
+    conforms: true
+    evidence: report payloads JWE-encrypted with RSA-OAEP-256; RSA public keys served at /connect/jwkset
+  - id: jwks
+    conforms: true
+    evidence: GET /connect/jwkset returns an RFC 7517 JWK Set (verified 200)
+  - id: scim2
+    conforms: true
+    evidence: dedicated SCIM provisioning documentation at docs.novacredit.com/scim
+  - id: sso
+    conforms: true
+    evidence: dedicated SSO documentation at docs.novacredit.com/sso
+  - id: webhooks
+    conforms: true
+    evidence: asynchronous HTTP POST status callbacks documented
+  - id: oauth2
+    conforms: false
+    evidence: no oauth2 flows documented; auth is Basic + short-lived Bearer
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: errors use custom code strings + HTTP status, not application/problem+json
+  - id: fapi
+    conforms: false
+  - id: openapi
+    conforms: false
+    evidence: no machine-readable OpenAPI document published on the public docs

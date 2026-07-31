@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: searched
+probe: true
+url: https://trust.novacredit.com/
+verified_status: 200
+certifications: []
+note: >-
+  A trust center is published at trust.novacredit.com (verified reachable, 200).
+  The page is a client-rendered trust-portal SPA whose certification list could
+  not be extracted server-side; no specific certifications are asserted here to
+  avoid fabrication. Nova Credit operates as a consumer-reporting / financial
+  data provider (FCRA/GLBA-regulated domain), but named certifications
+  (e.g. SOC 2, ISO 27001) were not verifiable from the fetched content.
+evidence:
+  - source: https://trust.novacredit.com/
+    keywords: [trust center]

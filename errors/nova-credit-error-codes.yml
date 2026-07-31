@@ -1,0 +1,41 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.novacredit.com/credit-passport/v4
+format: custom-error-code
+envelope:
+  description: >-
+    Errors are returned with a standard HTTP status code and a machine-readable
+    error code string identifying the failure condition. Payloads are not
+    RFC 9457 application/problem+json.
+  fields:
+    - code: machine-readable error code string
+status_codes:
+  - status: 200
+    meaning: OK — successful request
+  - status: 400
+    meaning: Bad Request — malformed request or missing parameters
+  - status: 403
+    meaning: Forbidden — authentication failure or unauthorized
+  - status: 404
+    meaning: Not Found — resource not found
+error_codes:
+  - code: MALFORMED_HEADERS
+    status: 400
+    meaning: Required request headers are missing or malformed.
+    remediation: Verify X-PUBLIC-TOKEN / X-EXTERNAL-ID / X-PUBLIC-ID header presence and format.
+  - code: MALFORMED_BODY
+    status: 400
+    meaning: The request body is missing required fields or is malformed.
+    remediation: Validate the request payload against the documented schema.
+  - code: UNKNOWN_CUSTOMER
+    status: 403
+    meaning: The authenticated customer/account could not be resolved.
+    remediation: Confirm clientId/publicId and that the account is provisioned.
+  - code: INVALID_TOKEN
+    status: 403
+    meaning: The supplied access or public token is invalid or expired.
+    remediation: Re-request an accessToken (5 min TTL) or confirm the publicToken.
+  - code: DUPLICATE_EXTERNAL_ID
+    status: 400
+    meaning: The supplied X-EXTERNAL-ID has already been used.
+    remediation: Use a unique external identifier per applicant/report.
