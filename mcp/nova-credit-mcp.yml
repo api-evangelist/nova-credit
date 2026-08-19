@@ -2,49 +2,53 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: https://docs.novacredit.com/credit-passport/v4
-note: >-
-  No official hosted/remote Nova Credit MCP server was found (no entry in the
-  MCP registry, npm @modelcontextprotocol, or the developer docs). This is a
-  candidate tool surface derived from the documented Credit Passport v4
-  operations for a future MCP server.
+note: No official hosted/remote Nova Credit MCP server was found (no entry in the MCP registry, npm @modelcontextprotocol,
+  or the developer docs). This is a candidate tool surface derived from the documented Credit Passport
+  v4 operations for a future MCP server.
 server:
   name: nova-credit
   transport: http
   url: null
 tools:
-  - name: get_access_token
-    description: Obtain a short-lived (5 min) access token via HTTP Basic (clientId:secretKey).
-    source_operation: GET /connect/accesstoken
-  - name: create_consumer
-    description: Create a consumer (applicant) record.
-    source_operation: POST /connect/consumers
-  - name: get_consumer
-    description: Retrieve consumer details.
-    source_operation: GET /connect/consumers/:consumerId
-  - name: update_consumer
-    description: Update consumer data.
-    source_operation: PATCH /connect/consumers/:consumerId
-  - name: initialize_connect
-    description: Generate a prefilled NovaConnect token/session.
-    source_operation: POST /connect/initialization
-  - name: send_invite
-    description: Email a NovaConnect invitation to an applicant.
-    source_operation: POST /connect/invite
-  - name: create_invite_link
-    description: Generate a shareable NovaConnect link.
-    source_operation: POST /connect/invite-link
-  - name: get_report_status
-    description: Check Credit Passport report compilation status.
-    source_operation: GET /connect/status
-  - name: get_report_json
-    description: Fetch the Credit Passport report as JSON.
-    source_operation: GET /connect/passport/v4/json
-  - name: get_report_pdf
-    description: Fetch the Credit Passport report as PDF.
-    source_operation: GET /connect/passport/v4/pdf
-  - name: list_suppliers
-    description: List active data suppliers.
-    source_operation: GET /connect/suppliers
-  - name: get_jwks
-    description: Retrieve RSA public keys for report payload decryption.
-    source_operation: GET /connect/jwkset
+- name: get_access_token
+  description: Obtain a short-lived (5 min) access token via HTTP Basic (clientId:secretKey).
+  source_operation: GET /connect/accesstoken
+- name: create_consumer
+  description: Create a consumer (applicant) record.
+  source_operation: POST /connect/consumers
+- name: get_consumer
+  description: Retrieve consumer details.
+  source_operation: GET /connect/consumers/:consumerId
+- name: update_consumer
+  description: Update consumer data.
+  source_operation: PATCH /connect/consumers/:consumerId
+- name: initialize_connect
+  description: Generate a prefilled NovaConnect token/session.
+  source_operation: POST /connect/initialization
+- name: send_invite
+  description: Email a NovaConnect invitation to an applicant.
+  source_operation: POST /connect/invite
+- name: create_invite_link
+  description: Generate a shareable NovaConnect link.
+  source_operation: POST /connect/invite-link
+- name: get_report_status
+  description: Check Credit Passport report compilation status.
+  source_operation: GET /connect/status
+- name: get_report_json
+  description: Fetch the Credit Passport report as JSON.
+  source_operation: GET /connect/passport/v4/json
+- name: get_report_pdf
+  description: Fetch the Credit Passport report as PDF.
+  source_operation: GET /connect/passport/v4/pdf
+- name: list_suppliers
+  description: List active data suppliers.
+  source_operation: GET /connect/suppliers
+- name: get_jwks
+  description: Retrieve RSA public keys for report payload decryption.
+  source_operation: GET /connect/jwkset
+deployment:
+  mode: none
+  verified: derived
+  tools: 12
+  checked: '2026-08-12'
+  source: catalog MCP census
