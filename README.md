@@ -64,6 +64,107 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Nova Credit is a company surfaced as a portfolio company of general-catalyst, index-ventures and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Nova Credit is a fintech consumer-credit-data platform that gives lenders and financial institutions a single API to access unified consumer credit data from more than 26 sources — international credit bureaus, bank-transaction aggregators, payroll systems, and automated document data. Its products (Credit Passport, Cash Atlas, Income Navigator, and Eligibility Compass) let institutions underwrite qualified newcomers and thin-file applicants with translated international credit history, run cashflow-based underwriting from bank data, automate income verification with fraud detection, and speed income/asset verification for affordable housing. The developer platform exposes REST APIs over api.novacredit.com with a dedicated sandbox host, HTTP Basic to short-lived Bearer authentication, JWE-encrypted report payloads, hosted NovaConnect consent webviews, webhooks, SCIM and SSO.
 
-Backed by: general-catalyst, index-ventures — http://novacredit.com
+**Areas:** Company · Credit Data · Consumer Credit · Credit Bureau · Income Verification · Underwriting · Fintech · Financial Services · Lending · Cash Flow Underwriting · Identity
+
+## Nova Credit on APIs.io
+
+Everything profiled for Nova Credit is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nova-credit/](https://apis.io/providers/nova-credit/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Nova Credit Platform API](https://apis.io/apis/nova-credit/nova-credit-platform-api/) — Unified REST API surface across Nova Credit's products (Credit Passport v4, Cash Atlas v2, Income Navigator v2, Eligibility Compass v1). Server-side clients…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Nova Credit Webhooks](https://apis.io/asyncapis/nova-credit/nova-credit-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [nova-credit](https://apis.io/servers/nova-credit/nova-credit/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Nova Credit Authentication](https://apis.io/security/nova-credit/nova-credit-authentication/)
+- [Nova Credit Domain Security](https://apis.io/security/nova-credit/nova-credit-domain-security/)
+- [Nova Credit Trust Center](https://apis.io/security/nova-credit/nova-credit-trust-center/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.novacredit.com)
+- [Documentation](https://docs.novacredit.com)
+- [Getting started](https://docs.novacredit.com/credit-passport-quickstart)
+- [API reference](https://docs.novacredit.com/credit-passport/v4)
+- [Support](https://www.novacredit.com/contact)
+- [Blog](https://www.novacredit.com/corporate-blog)
+- [Terms of service](https://www.novacredit.com/terms)
+- [Privacy policy](https://www.novacredit.com/privacy)
+- [GitHub](https://github.com/novacredit)
+
+## API Evangelist rating
+
+**Kin Score 39.3** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 39.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 57.1 |
+| Access clarity | 28.9 |
+
+**Agent readiness 22.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 26.3** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nova-credit/](https://apis.io/providers/nova-credit/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Nova Credit: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nova-credit/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
